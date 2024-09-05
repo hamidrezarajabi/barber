@@ -1,0 +1,156 @@
+﻿@page
+@model cafefinder.Pages.allModel
+
+@{
+    ViewData["Title"] = "all";
+}
+
+<section>
+    <div class="content-section">
+
+        <form method="get" style="flex-direction: row;">
+            <div class="dropdown location-dropdown">
+
+                <select name="n" id="neighborhood">
+                    <option value="همه">همه محله ها</option>
+
+                    @foreach (var item in Model.N)
+                    {
+                        if (Model._N==item)
+                        {
+                            <option selected value="@item">@item</option>
+                        }
+                        else
+                        {
+                            <option value="@item">@item</option>
+
+                        }
+
+                    }
+                </select>
+            </div>
+
+            <label for="resturan">رستوران</label>
+            @{
+                if (Model.R)
+                {
+                    <input type="checkbox" checked name="r" id="resturan" />
+                }
+                else
+                {
+                    <input type="checkbox" name="r" id="resturan" />
+                }
+            }
+            <label for="cafeshop">کافه</label>
+            @{
+                if (Model.C)
+                {
+                    <input type="checkbox" checked name="c" id="cafeshop" />
+                }
+                else
+                {
+                    <input type="checkbox" name="c" id="cafeshop" />
+                }
+            }
+
+            <label for="boolcafe">کافه کتاب</label>
+            @{
+                if (Model.Book)
+                {
+                    <input type="checkbox" name="book" checked id="bookcafe" />
+                }
+                else
+                {
+                    <input type="checkbox" name="book" id="bookcafe" />
+                }
+            }
+
+            <label for="birthday">فضای تولد</label>
+            @{
+                if (Model.Br)
+                {
+                    <input type="checkbox" name="br" checked id="birthday" />
+                }
+                else
+                {
+                    <input type="checkbox" name="br" id="birthday" />
+                }
+            }
+
+
+            <label for="freesmoke">فری اسموک</label>
+            @{
+                if (Model.Fs)
+                {
+                    <input type="checkbox" name="fs" checked id="freesmoke" />
+                }
+                else
+                {
+                    <input type="checkbox" name="fs" id="freesmoke" />
+                }
+            }
+
+            <label for="roof">روف گاردن</label>
+            @{
+                if (Model.Roof)
+                {
+                    <input type="checkbox" name="roof" checked id="roof" />
+                }
+                else
+                {
+                    <input type="checkbox" name="roof" id="roof" />
+                }
+            }
+
+            <label for="faza">فضای باز</label>
+            @{
+                if (Model.Faza)
+                {
+                    <input type="checkbox" name="faza" checked id="faza" />
+                }
+                else
+                {
+                    <input type="checkbox" name="faza" id="faza" />
+                }
+            }
+
+            <button type="submit">جستجو</button>
+
+        </form>
+
+
+    </div>
+</section>
+
+<div class="products">
+
+    @foreach (var all in Model.info)
+    {
+        <div class="product-item">
+            <img src="data:image/png;base64,@all.Photo.FirstOrDefault().Value" />
+            <h3>@all.Name</h3>
+            <p>@all.Neighborhood</p>
+
+            @{
+                float star = 0;
+                foreach (var _star in all.StarRating?.Select(prop => prop.Value))
+                    star += _star;
+                star = star / all.StarRating.Count;
+                if (float.IsNaN(star)) { star = 0; }
+            }
+            <div class="rating">@star </div>
+            <a asp-page="./Details" asp-route-id="@all.Id">مشاهده</a> |
+        </div>
+
+
+
+    }
+
+
+
+
+
+</div>
+
+
+</div>

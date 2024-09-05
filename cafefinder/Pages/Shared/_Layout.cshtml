@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کافه</title>
+    <link rel="stylesheet" href="~/css/styles.css">
+    @await RenderSectionAsync("Css", required: false)
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">کافه فایندر</div>
+
+        <nav class="left-header">
+            <ul>
+                <li><a href="list.html">لیست همه</a></li>
+                <li><a href="C:\xampp\htdocs\cafefinder\contactus.html">ارتباط با ما</a></li>
+            </ul>
+        </nav>
+    </header>
+    @RenderBody()
+
+
+    <script src="~/js/scripts.js">        </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

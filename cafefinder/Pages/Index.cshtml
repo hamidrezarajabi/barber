@@ -1,0 +1,108 @@
+﻿@page
+@model cafefinder.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section Css {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+}
+
+
+<section class="main">
+    <div class="main-text">
+        <h1>بهترین ها را راحت انتخاب کنید</h1>
+        <p class="subtitle">همراه شما تا بهترین انتخاب</p>
+    </div>
+    <form action="search" method="GET" class="search-form">
+        <div class="input-wrapper">
+            <input type="text" name="s" placeholder="نام کافی‌شاپ یا رستوران">
+            <button type="submit" class="search-btn">
+                <i class="fas fa-search"></i> <!-- آیکون جستجو -->
+            </button>
+        </div>
+    </form>
+    <div class="show-all">
+        <button type="submit" class="show-btn">
+            <a href="/all">لیست همه</a>
+        </button>
+
+    </div>
+
+</section>
+<div class="text-center">
+    <p>برترین های هفته</p>
+</div>
+<div class="products">
+
+    @foreach (var top in Model.Top)
+    {
+        <div class="product-item">
+            <img src="data:image/png;base64,@top.Photo.FirstOrDefault().Value" />
+            <h3>@top.Name</h3>
+            <p>@top.Neighborhood</p>
+
+            @{
+                float star = 0;
+                foreach (var _star in top.StarRating?.Select(prop => prop.Value))
+                    star += _star;
+                star = star / top.StarRating.Count;
+                if (float.IsNaN(star)) { star = 0; }
+            }
+            <div class="rating">@star </div>
+            <a asp-page="./Details" asp-route-id="@top.Id">مشاهده</a> |
+        </div>
+
+
+
+    }
+
+
+
+
+</div>
+<section>
+    <h2>برترین محله ها</h2>
+    <div class="neighborhoods">
+
+        @foreach (var item in Model.N)
+        {
+            <button> <a asp-page="./Index" asp-route-n="@item">@item</a></button>
+
+        }
+
+
+
+    </div>
+</section>
+
+<div class="products">
+
+
+
+
+    @foreach (var top in Model.BYN)
+    {
+        <div class="product-item">
+            <img src="data:image/png;base64,@top.Photo.FirstOrDefault().Value" />
+            <h3>@top.Name</h3>
+            <p>@top.Neighborhood</p>
+
+            @{
+                float star = 0;
+                foreach (var _star in top.StarRating?.Select(prop => prop.Value))
+                    star += _star;
+                star = star / top.StarRating.Count;
+                if (float.IsNaN(star)) { star = 0; }
+            }
+            <div class="rating">@star </div>
+            <a asp-page="./Details" asp-route-id="@top.Id">مشاهده</a> |
+        </div>
+
+
+
+    }
+
+
+</div>

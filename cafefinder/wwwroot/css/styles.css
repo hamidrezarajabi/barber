@@ -1,0 +1,661 @@
+        body {
+            font-family: peyda;
+            direction: rtl;
+            background-image: url('/banner.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat; 
+            color: white;
+            background-color : rosybrown;
+        }
+        @font-face {
+            font-family: peyda;
+            src: url(src/peyda.woff);
+        }
+        
+
+        
+        
+        
+        
+        .container {
+            height: 100%;
+            display: flex;
+        }
+
+
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(54, 52, 52, 0); 
+            padding: 10px;
+        }
+
+        header .logo {
+            font-family: Peyda;
+            font-size: 37px;
+            margin-left: 10px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .left-header {
+            background-color: rgba(54, 52, 52, 0.082); /* رنگ نیمه شفاف خاکستری تیره */
+            border-radius: 5px; /* گوشه‌های گرد (در صورت نیاز) */
+        }
+
+        .left-header ul {
+            list-style: none; /* حذف نقاط لیست */
+            padding: 0;
+            margin: 0;
+        }
+
+        .left-header li {
+            margin-bottom: 10px; /* فاصله بین آیتم‌های لیست */
+        }
+
+        .left-header a {
+            text-decoration: none; /* حذف خط زیر لینک‌ها */
+            color: white; /* رنگ متن لینک‌ها */
+            font-size: 16px; /* اندازه فونت لینک‌ها */
+            display: block; /* تبدیل لینک‌ها به بلوک برای بهتر نمایش دادن فضای کلی */
+            padding: 5px; /* فاصله داخلی لینک‌ها */
+        }
+
+        .left-header a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* رنگ پس‌زمینه تغییر یافته هنگام هاور */
+            border-radius: 5px; /* گوشه‌های گرد هنگام هاور */
+        }
+
+
+
+        .main {
+            position: relative;
+            padding: 30px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center; /* متن‌ها را وسط‌چین می‌کند */
+            padding: 20px; /* فاصله داخلی برای زیبایی بیشتر */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* برای اضافه کردن سایه به سکشن */
+            border-radius: 8px; /* گرد کردن لبه‌ها */
+            max-width: 100%; /* حداکثر عرض */
+            width: 100%; /* عرض کامل تا حداکثر مقدار تعیین شده */
+        
+        }
+
+        .main-text {
+            max-width: 600px;
+            
+        }
+
+        .main-text h1 {
+            
+            justify-content: center;
+            justify-items: center;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .main-text p{
+            justify-content: center;
+        }
+
+        .search-form {
+            display: flex;
+            font-family: peyda;
+            width: 70%;
+            height: 60px;
+            margin-top: 20px; /* فاصله از عنوان */
+        }
+        .input-wrapper {
+            height: 50px;
+            font-family: peyda;
+            display: flex;
+            background-color: #a6a6a647;
+            flex-direction: row;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            flex-direction: row-reverse;
+            color: #000000;
+
+        }
+        .input-wrapper text{
+            color: #000000;
+        }
+
+        .search-form input {
+            padding: 10px;
+            border: none;
+            width: 100%;
+            background-color: #ffffff49;
+            flex: 1;
+            outline: none; /* حذف خط دور فیلد ورودی */
+            color: #000000;
+
+        }
+
+        .search-btn {
+            order: -1;
+            padding: 10px;
+            border: none;
+            background-color: #ffffff49;
+            color: rgb(255, 255, 255);
+            border-radius: 0px;
+            position: absolute; /* برای قرار دادن دکمه روی لایه بالایی */
+            top: 0;
+            left: 0;
+            width: 70px; /* عرض دلخواه دکمه */
+            height: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-btn i {
+            font-size: 25px; /* اندازه آیکون */
+        }
+
+        .search-btn:hover {
+            background-color: #673019;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .show-all {
+
+            display: flex;
+            font-family: peyda;
+            width: 40%;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px; 
+            outline: none;
+        }
+        .show-btn{
+            font-size: 20px;
+            display: flex;
+            font-family: peyda;
+            width: 100%;
+            font-weight: bold;
+            border: none;
+            height: 100%;
+            color: #ffffff;
+            background-color: #543310;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-radius: 30px;
+            outline: none;
+
+        }
+
+        
+        .show-btn:hover {
+            background-color: #e1bda4; 
+            color: #000000;
+        }
+        .products {
+            width: 100%;
+            height: 25%;
+            display: flex;
+            margin-top: 40px;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .text-center p {
+            font-size: 40px;
+            color: #ffffff;
+            text-align: center; /* برای وسط چین کردن متن */
+            margin-bottom: 20px; /* فاصله بین پاراگراف و کارت‌ها */
+        }
+        .product-item {
+            width:25% ;
+            height: 50%;
+            background-color: rgba(255, 255, 255, 0.356);
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-right: 20px;
+            max-width: 150px;
+        }
+
+        .product-item img {
+            width: 70%;
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .product-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-item p {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .product-item a {
+            text-decoration: none;
+            color: #964B00;
+            font-weight: bold;
+        }
+        .cafe-show-btn{
+            background-color: #4a2a15;
+            color: #ffffff;
+            width: 100px;
+            height: 40px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .product-item button:hover {
+            background-color: #ffffff;
+            color: #000000;
+            }
+            
+            section h2{
+                font-size: 40px;
+                color: #ffffff;
+                text-align: center; /* برای وسط چین کردن متن */
+                margin-bottom: 20px; 
+        }
+
+            .neighborhoods {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            }
+            
+            .neighborhoods button {
+            width: 200px;
+            height: 40px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            }
+            
+            .neighborhoods button:hover {
+            background-color: #40260a;
+            color: #ffffff;
+            }
+            
+            .info-cafe button{
+                padding: 10px;
+                font-family: peyda;
+                padding: 10px;
+                width: 230px;
+                height: 50px;
+                font-size: 25px;
+                color: black;
+                background-color: #e6aa82;
+                border: none;
+                border-radius: 20px;
+
+            }
+            .info-cafe button:hover{
+                
+            background-color: #40260a;
+            color: #ffffff;
+            }
+
+            
+            .content-section {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px 0;
+            }
+            
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+            
+            .dropdown button {
+                width: 100px;
+                height: 40px;
+                background-color: #f0f0f0;
+                border: 1px solid #ccc;
+                border-radius: 35px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 200px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                border-radius: 10px;
+                z-index: 1;
+            }
+            
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            .dropdown-content a:last-child {
+                border-bottom: none;
+            }
+            
+            .dropdown-content a:hover {
+                background-color: #f1f1f1;
+            }
+            
+            .show {
+                display: block;
+            }
+            
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: rgba(54, 52, 52, 0.5); 
+            padding: 10px;
+        }
+
+        nav button {
+            background-color: #55555563;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        main .item {
+            background-color: #d9d9d9;
+            color: black;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+
+        .container-resturent {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .info-gallery-resturent, .comments-form {
+            padding: 10px;
+            margin-top: 20px;
+            margin-right: 20px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .info-resturent, .gallery-resturent, .comments-resturent, .form ,.comments-cafe, .comments{
+            width: 80%;
+            height: 400px;
+            background-color: #f4f4f450;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px 20px 20px 20px;
+        }
+
+        .gallery-images-resturent {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .gallery-images-resturent img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-images-resturent img:hover {
+            transform: scale(1.1);
+        }
+
+        .comments-resturent p {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .comments p {
+            color: #000000;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #ffffff33;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        form input, form textarea, form select, form button,form label {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #33333374;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position:relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .info-gallery-cafe, .comments-form {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .info-cafe, .gallery-cafe, .comments-cafe, .form {
+            width: 48%;
+            background-color: #f4f4f450;
+            padding: 20px;
+            margin: 20px 20px 20px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .info-cafe h2{
+            color: #000000;
+            font-family: peyda;
+            font-weight: bold;
+            font-size: 30px;
+        }
+        .info-cafe p{
+            color: #000000;
+            font-family: peyda;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .gallery-images-cafe {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .gallery-images-cafe img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-images-cafe img:hover {
+            transform: scale(1.1);
+        }
+
+        .comments-cafe p {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+
+
+
+
+
+
+
+
+        .container-contact {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+
+        .contact-form, .call-to-action {
+            width: 48%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-form h2, .call-to-action h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .contact-form button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #555;
+        }
+
+        .call-to-action {
+            text-align: center;
+        }
+
+        .call-to-action p {
+            margin: 20px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #33333350;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }

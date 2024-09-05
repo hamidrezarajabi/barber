@@ -1,0 +1,89 @@
+﻿@page
+@model cafefinder.Pages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<main>
+    @{
+        if (Model.Place.FoodAndDrink)
+        {
+            <h1 class="cafe-name">کافه رستوران</h1>
+        }
+        else
+        {
+            if (Model.Place.Restaurant)
+            {
+                <h1 class="cafe-name"> رستوران</h1>
+
+            }
+            else
+            {
+                <h1 class="cafe-name"> کافه</h1>
+            }
+        }
+
+
+    }
+</main>
+<div class="container-resturent">
+    <div class="info-gallery-cafe">
+        <div class="info-cafe">
+            <h2>@Model.Place.Name</h2>
+            <p>آدرس: @Model.Place.Address</p>
+            <p>
+                ساعت کار : @Model.Place.FreeSittingTime</p>
+                <button>
+                    <a href="#">
+                        لوکیشن
+                    </a>
+                </button>
+                <button>
+                    <a href="#">
+                        منو
+                    </a>
+                </button>
+
+        </div>
+        <div class="gallery-cafe">
+            <h2>گالری تصاویر</h2>
+            <div class="gallery-images-cafe">
+                @foreach (var item in Model.Place.Photo)
+                {
+                    <img src="data:image/png;base64,@item.Value" />
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="comments-form">
+        <div class="comments">
+            <h2>نظرات مشتریان</h2>
+            @foreach (var item in Model.Place.StarRating)
+            {
+              <p>@item.Value:@item.Key</p>
+            }
+        </div>
+        <div class="form">
+            <h2>نظر خود را ثبت کنید</h2>
+            <form  method="post">
+                <textarea name="text" id="comment" placeholder="نظر شما" required></textarea>
+                <label for="rating">امتیاز:</label>
+                <select name="rate" id="rating" required>
+                    <option value="5">5 ستاره</option>
+                    <option value="4">4 ستاره</option>
+                    <option value="3">3 ستاره</option>
+                    <option value="2">2 ستاره</option>
+                    <option value="1">1 ستاره</option>
+                </select>
+                <button type="submit">ثبت نظر</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>تمامی حقوق محفوظ است. © 2024</p>
+</footer>
+
