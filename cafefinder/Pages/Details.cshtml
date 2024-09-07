@@ -33,17 +33,18 @@
             <h2>@Model.Place.Name</h2>
             <p>آدرس: @Model.Place.Address</p>
             <p>
-                ساعت کار : @Model.Place.FreeSittingTime</p>
-                <button>
-                    <a href="#">
-                        لوکیشن
-                    </a>
-                </button>
-                <button>
-                    <a href="#">
-                        منو
-                    </a>
-                </button>
+                ساعت کار : @Model.Place.FreeSittingTime
+            </p>
+            <button>
+                <a href="#">
+                    لوکیشن
+                </a>
+            </button>
+            <button>
+                <a href="#">
+                    منو
+                </a>
+            </button>
 
         </div>
         <div class="gallery-cafe">
@@ -62,12 +63,12 @@
             <h2>نظرات مشتریان</h2>
             @foreach (var item in Model.Place.StarRating)
             {
-              <p>@item.Value:@item.Key</p>
+                <p>@item.Value:@item.Key</p>
             }
         </div>
         <div class="form">
             <h2>نظر خود را ثبت کنید</h2>
-            <form  method="post">
+            <form method="post">
                 <textarea name="text" id="comment" placeholder="نظر شما" required></textarea>
                 <label for="rating">امتیاز:</label>
                 <select name="rate" id="rating" required>
@@ -81,6 +82,12 @@
             </form>
         </div>
     </div>
+    @{
+        if (Model.IsLogin)
+        {
+            <a asp-page="./edit" asp-route-id="@Model.Id"> <button> ادیت </button> </a>
+        }
+    }
 </div>
 
 <footer>
