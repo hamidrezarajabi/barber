@@ -9,6 +9,8 @@ using cafefinder.database;
 
 namespace cafefinder.Pages
 {
+
+
     public class CreateModel : PageModel
     {
         private readonly cafefinder.database.DBContext _context;
@@ -20,6 +22,11 @@ namespace cafefinder.Pages
 
         public IActionResult OnGet()
         {
+            if (!_context.Users.Where(p => p.UserName == HttpContext.Request.Cookies["username"] && p.Password == HttpContext.Request.Cookies["password"]).Any())
+            {
+                
+                return RedirectToPage("login");
+            }
             return Page();
         }
 
@@ -30,7 +37,11 @@ namespace cafefinder.Pages
         public async Task<IActionResult> OnPostAsync()
         {
 
+            if (!_context.Users.Where(p => p.UserName == HttpContext.Request.Cookies["username"] && p.Password == HttpContext.Request.Cookies["password"]).Any())
+            {
 
+                return RedirectToPage("login");
+            }
 
             if (!ModelState.IsValid)
             {

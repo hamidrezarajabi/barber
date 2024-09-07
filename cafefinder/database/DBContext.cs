@@ -68,7 +68,12 @@ namespace cafefinder.database
                City = "mashhad",
            });
 
-
+            modelBuilder.Entity<User>().HasData(new User()
+            {
+                UserName = "admin",
+                Password = "cafe1403admin*",
+                Numberphone = "09334101438"
+            });
         }
         public DbSet<Place> Places { get; set; }
         public DbSet<User> Users { get; set; }

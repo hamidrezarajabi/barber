@@ -25,6 +25,14 @@ namespace cafefinder.Pages
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
+
+            if (!_context.Users.Where(p => p.UserName == HttpContext.Request.Cookies["username"] && p.Password == HttpContext.Request.Cookies["password"]).Any())
+            {
+
+                return RedirectToPage("login");
+            }
+
+
             if (id == null)
             {
                 return NotFound();
@@ -43,6 +51,14 @@ namespace cafefinder.Pages
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync( )
         {
+            if (!_context.Users.Where(p => p.UserName == HttpContext.Request.Cookies["username"] && p.Password == HttpContext.Request.Cookies["password"]).Any())
+            {
+
+                return RedirectToPage("login");
+            }
+
+
+
             Console.WriteLine(HttpContext.Request.Form.Files);
             if (!ModelState.IsValid)
             {
