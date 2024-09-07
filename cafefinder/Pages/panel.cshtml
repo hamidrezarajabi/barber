@@ -1,0 +1,96 @@
+﻿@page
+@model cafefinder.Pages.DashboardModel
+@{
+}
+
+
+
+<h2>Admin Dashboard</h2>
+
+<div class="stats-container">
+    <div class="stat-item">
+        <h3>Total Restaurants</h3>
+        <p>@Model.RestaurantCount</p>
+    </div>
+
+    <div class="stat-item">
+        <h3>Total Cafes</h3>
+        <p>@Model.CafeCount</p>
+    </div>
+
+    <!-- سایر مقادیر مشابه را در اینجا نمایش دهید -->
+</div>
+
+<div>
+
+    <form method="post">
+        <button type="submit" asp-page-handler="Logout" class="btn btn-danger">خروج</button>
+    </form>
+
+</div>
+
+@* نمایش اسم یوزر *@
+<div>   
+
+    @HttpContext.Request.Cookies["username"]
+
+</div>
+@* @DateTime.Now *@
+
+@* نمایش ساعت *@
+@TimeOnly.FromDateTime(DateTime.Now)
+
+
+<div class="products">
+
+    @foreach (var all in Model.info)
+    {
+        <div class="product-item">
+            <img src="data:image/png;base64,@all.Photo.FirstOrDefault().Value" />
+            <h3>@all.Name</h3>
+            <p>@all.Neighborhood</p>
+
+            @{
+                float star = 0;
+                foreach (var _star in all.StarRating?.Select(prop => prop.Value))
+                    star += _star;
+                star = star / all.StarRating.Count;
+                if (float.IsNaN(star)) { star = 0; }
+            }
+            <div class="rating">@star </div>
+            <a asp-page="./Details" asp-route-id="@all.Id">مشاهده</a> |
+        </div>
+
+
+
+    }
+
+</div>
+
+<style>
+    .stats-container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .stat-item {
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        .stat-item h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .stat-item p {
+            font-size: 2em;
+            color: #007bff;
+            margin: 10px 0 0;
+        }
+</style>
