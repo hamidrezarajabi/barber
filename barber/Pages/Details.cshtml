@@ -8,19 +8,19 @@
 <head>
     <link rel="stylesheet" href="~/@(nameof(cafefinder)).styles.css" />
 </head>
- 
+
 <main>
     @{
-            if (Model.Place.Man)
-            {
-                <h1 class="cafe-name"> مردانه</h1>
+        if (Model.Place.Man)
+        {
+            <h1 class="cafe-name"> مردانه</h1>
 
-            }
-            else
-            {
-                <h1 class="cafe-name"> زنانه</h1>
-            }
         }
+        else
+        {
+            <h1 class="cafe-name"> زنانه</h1>
+        }
+    }
 
 
     }
@@ -87,16 +87,16 @@
 <div class="form">
     <h2>اطلاعات خود را وارد نمایید</h2>
     <form method="post">
-        <input type="hidden" name="id" value="@Model.Id"/>
+        <input type="hidden" name="id" value="@Model.Id" />
         <label for="name">نام و نام خانوادگی خود را وارد نمایید</label>
         <input type="text" name="name" id="name" />
         <label for="phone-number"> شماره تلفن خود را وارد نمایید </label>
         <input type="tel" name="phone" id="phone-number" />
         <label for="rating"> انتخاب تایم: </label>
-                <select name="rezervTime" id="rezervTime" required>
+        <select name="rezervTime" id="rezervTime" required>
             @foreach (var item in Model.rezerv)
             {
-                  <option value="@item">@item</option>
+                <option value="@item">@item</option>
             }
         </select>
         <label for="people-number"> تعداد نفرات خود را بنویسید </label>
