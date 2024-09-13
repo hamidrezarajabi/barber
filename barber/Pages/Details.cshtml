@@ -5,22 +5,20 @@
     ViewData["Title"] = "Details";
 }
 
+<head>
+    <link rel="stylesheet" href="~/@(nameof(cafefinder)).styles.css" />
+</head>
+ 
 <main>
     @{
-        if (Model.Place.FoodAndDrink)
-        {
-            <h1 class="cafe-name">کافه رستوران</h1>
-        }
-        else
-        {
-            if (Model.Place.Restaurant)
+            if (Model.Place.Man)
             {
-                <h1 class="cafe-name"> رستوران</h1>
+                <h1 class="cafe-name"> مردانه</h1>
 
             }
             else
             {
-                <h1 class="cafe-name"> کافه</h1>
+                <h1 class="cafe-name"> زنانه</h1>
             }
         }
 
@@ -33,16 +31,11 @@
             <h2>@Model.Place.Name</h2>
             <p>آدرس: @Model.Place.Address</p>
             <p>
-                ساعت کار : @Model.Place.FreeSittingTime
+                ساعت کار : @Model.Place.WorkTime
             </p>
             <button>
-                <a href="#">
+                <a href="@Model.Place.LocationLink">
                     لوکیشن
-                </a>
-            </button>
-            <button>
-                <a href="#">
-                    منو
                 </a>
             </button>
 
@@ -90,6 +83,44 @@
     }
 </div>
 
+
+<div class="form">
+    <h2>اطلاعات خود را وارد نمایید</h2>
+    <form method="post">
+        <input type="hidden" name="id" value="@Model.Id"/>
+        <label for="name">نام و نام خانوادگی خود را وارد نمایید</label>
+        <input type="text" name="name" id="name" />
+        <label for="phone-number"> شماره تلفن خود را وارد نمایید </label>
+        <input type="tel" name="phone" id="phone-number" />
+        <label for="rating"> انتخاب تایم: </label>
+                <select name="rezervTime" id="rezervTime" required>
+            @foreach (var item in Model.rezerv)
+            {
+                  <option value="@item">@item</option>
+            }
+        </select>
+        <label for="people-number"> تعداد نفرات خود را بنویسید </label>
+        <input type="number" name="count" id="people-number" />
+        <button type="submit" asp-page-handler="Rezerv" class="btn btn-danger">ثبت رزرو </button>
+    </form>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <footer>
     <p>تمامی حقوق محفوظ است. © 2024</p>
 </footer>

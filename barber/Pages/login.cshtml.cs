@@ -1,3 +1,4 @@
+
 using cafefinder.database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -24,6 +25,14 @@ namespace cafefinder.Pages
                 HttpContext.Response.Cookies.Append("password", password);
 
                 return RedirectToPage("panel");
+            }
+            if (DBcontext.Places.Where(propa => propa.UserName == username && propa.Password == password).Any())
+            {
+
+                HttpContext.Response.Cookies.Append("username", username);
+                HttpContext.Response.Cookies.Append("password", password);
+                var x = typeof(Pages_barberpanel);
+                return RedirectToPage(nameof(Pages_barberpanel).Split("_", 2)[1]);
             }
             return Page();
         }

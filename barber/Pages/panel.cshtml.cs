@@ -28,11 +28,11 @@ namespace cafefinder.Pages
             }
 
 
-            // دریافت تعداد رستوران‌ها
-            RestaurantCount = _context.Places.Where(p => p.Restaurant).Count();
+            // دریافت تعداد مردانه ‌ها
+            RestaurantCount = _context.Places.Where(p => p.Man).Count();
 
-            // دریافت تعداد کافه‌ها
-            CafeCount = _context.Places.Where(p => p.CafeShop).Count();
+            // دریافت تعداد زنانه ها
+            CafeCount = _context.Places.Where(p => p.Women).Count();
 
             // سایر مقادیر مشابه را در اینجا اضافه کنید
             return Page();

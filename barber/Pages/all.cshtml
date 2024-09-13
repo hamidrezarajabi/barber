@@ -30,87 +30,98 @@
                 </select>
             </div>
 
-            <label for="resturan">رستوران</label>
+            <label for="man">مردانه</label>
             @{
-                if (Model.R)
+                if (Model._man)
                 {
-                    <input type="checkbox" checked name="r" id="resturan" />
+                    <input type="checkbox" checked name="man" id="man" />
                 }
                 else
                 {
-                    <input type="checkbox" name="r" id="resturan" />
+                    <input type="checkbox" name="man" id="man" />
                 }
             }
-            <label for="cafeshop">کافه</label>
+            <label for="women">زنانه</label>
             @{
-                if (Model.C)
+                if (Model._women)
                 {
-                    <input type="checkbox" checked name="c" id="cafeshop" />
+                    <input type="checkbox" checked name="women" id="women" />
                 }
                 else
                 {
-                    <input type="checkbox" name="c" id="cafeshop" />
-                }
-            }
-
-            <label for="boolcafe">کافه کتاب</label>
-            @{
-                if (Model.Book)
-                {
-                    <input type="checkbox" name="book" checked id="bookcafe" />
-                }
-                else
-                {
-                    <input type="checkbox" name="book" id="bookcafe" />
+                    <input type="checkbox" name="women" id="women" />
                 }
             }
 
-            <label for="birthday">فضای تولد</label>
+            <label for="damadarosgrim">گریم داماد و عروس</label>
             @{
-                if (Model.Br)
+                if (Model._damadarosgrim)
                 {
-                    <input type="checkbox" name="br" checked id="birthday" />
+                    <input type="checkbox" name="damadarosgrim" checked id="damadarosgrim" />
                 }
                 else
                 {
-                    <input type="checkbox" name="br" id="birthday" />
+                    <input type="checkbox" name="damadarosgrim" id="damadarosgrim" />
+                }
+            }
+
+            <label for="damadarosgrim">پاکسازی صورت</label>
+            @{
+                if (Model._paksazisorat)
+                {
+                    <input type="checkbox" name="paksazisorat" checked id="paksazisorat" />
+                }
+                else
+                {
+                    <input type="checkbox" name="paksazisorat" id="paksazisorat" />
                 }
             }
 
 
-            <label for="freesmoke">فری اسموک</label>
+            <label for="keratin">کراتین </label>
             @{
-                if (Model.Fs)
+                if (Model._keratin)
                 {
-                    <input type="checkbox" name="fs" checked id="freesmoke" />
+                    <input type="checkbox" name="keratin" checked id="keratin" />
                 }
                 else
                 {
-                    <input type="checkbox" name="fs" id="freesmoke" />
+                    <input type="checkbox" name="keratin" id="keratin" />
                 }
             }
 
-            <label for="roof">روف گاردن</label>
+            <label for="feshial">فشیال  </label>
             @{
-                if (Model.Roof)
+                if (Model._feshial)
                 {
-                    <input type="checkbox" name="roof" checked id="roof" />
+                    <input type="checkbox" name="feshial" checked id="feshial" />
                 }
                 else
                 {
-                    <input type="checkbox" name="roof" id="roof" />
+                    <input type="checkbox" name="feshial" id="feshial" />
                 }
             }
 
-            <label for="faza">فضای باز</label>
+            <label for="kashtnakhon">کاشت ناخن</label>
             @{
-                if (Model.Faza)
+                if (Model._kashtnakhon)
                 {
-                    <input type="checkbox" name="faza" checked id="faza" />
+                    <input type="checkbox" name="kashtnakhon" checked id="kashtnakhon" />
                 }
                 else
                 {
-                    <input type="checkbox" name="faza" id="faza" />
+                            <input type="checkbox" name="kashtnakhon" id="kashtnakhon" />
+                }
+            }
+            <label for="childeren">اصلاح کودک</label>
+            @{
+                if (Model._childeren)
+                {
+                    <input type="checkbox" name="childeren" checked id="childeren" />
+                }
+                else
+                {
+                                    <input type="checkbox" name="childeren" id="childeren" />
                 }
             }
 

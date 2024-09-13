@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using cafefinder.database;
 
@@ -11,9 +12,11 @@ using cafefinder.database;
 namespace cafefinder.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DbContextModelSnapshot : ModelSnapshot
+    [Migration("20240908122935_addusernameplace")]
+    partial class addusernameplace
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,6 +75,10 @@ namespace cafefinder.Migrations
                     b.Property<bool>("OpenSpace")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
@@ -84,6 +91,13 @@ namespace cafefinder.Migrations
                     b.Property<string>("StarRating")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("rezarv")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Places");
@@ -91,7 +105,7 @@ namespace cafefinder.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2c5e89a3-88e2-428e-9e6f-703f2f436d15"),
+                            Id = new Guid("92f37ab2-cc03-4f13-8a8f-1ce8d78937d2"),
                             Address = "بلوار سجاد، پاساژ لاله ، انتهای پاساژ طبقه اول",
                             BirthdayTheme = false,
                             BookCafe = true,
@@ -105,14 +119,17 @@ namespace cafefinder.Migrations
                             Name = "ماه من",
                             Neighborhood = "سجاد",
                             OpenSpace = true,
+                            Password = "Password",
                             Photo = "[]",
                             Restaurant = false,
                             RoofGarden = true,
-                            StarRating = "[]"
+                            StarRating = "[]",
+                            UserName = "my-moon",
+                            rezarv = "{}"
                         },
                         new
                         {
-                            Id = new Guid("96c29506-4ddf-4698-a978-99319ca44903"),
+                            Id = new Guid("4b0c979f-7e86-4fa9-a93a-cd706790cb69"),
                             Address = "بلوار سجاد ،چهارراه گلریز ، گلریز4،یاس3",
                             BirthdayTheme = false,
                             BookCafe = true,
@@ -126,14 +143,17 @@ namespace cafefinder.Migrations
                             Name = "خانه اکنون",
                             Neighborhood = "سجاد",
                             OpenSpace = true,
+                            Password = "Password",
                             Photo = "[]",
                             Restaurant = true,
                             RoofGarden = false,
-                            StarRating = "[]"
+                            StarRating = "[]",
+                            UserName = "aknon-home",
+                            rezarv = "{}"
                         },
                         new
                         {
-                            Id = new Guid("75098651-364f-4b66-ad6f-650bec447fd7"),
+                            Id = new Guid("07d6aad7-0601-4495-85dc-9fb758c7806e"),
                             Address = "وکیل آباد 13",
                             BirthdayTheme = false,
                             BookCafe = false,
@@ -147,10 +167,13 @@ namespace cafefinder.Migrations
                             Name = " لیالی لبنان",
                             Neighborhood = "وکیل آباد",
                             OpenSpace = true,
+                            Password = "Password",
                             Photo = "[]",
                             Restaurant = true,
                             RoofGarden = false,
-                            StarRating = "[]"
+                            StarRating = "[]",
+                            UserName = "layali-lobnan",
+                            rezarv = "{}"
                         });
                 });
 
@@ -179,7 +202,7 @@ namespace cafefinder.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("52491717-410f-4935-a76f-397bab619c75"),
+                            Id = new Guid("a9afdb37-ce0f-42ad-acab-fa82f6521051"),
                             Numberphone = "09334101438",
                             Password = "cafe1403admin*",
                             UserName = "admin"

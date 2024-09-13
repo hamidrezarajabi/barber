@@ -1,19 +1,18 @@
 ﻿@page
-@model cafefinder.Pages.EditModel
+@model cafefinder.Pages.CreateModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Edit</h1>
+<h1>Create</h1>
 
 <h4>Place</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Place.Id" />
             <div class="form-group">
                 <label asp-for="Place.Name" class="control-label"></label>
                 <input asp-for="Place.Name" class="form-control" />
@@ -31,101 +30,73 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Place.CafeShop" /> @Html.DisplayNameFor(model => model.Place.CafeShop)
+                    <input class="form-check-input" asp-for="Place.Man" /> @Html.DisplayNameFor(model => model.Place.Man)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Place.Restaurant" /> @Html.DisplayNameFor(model => model.Place.Restaurant)
+                    <input class="form-check-input" asp-for="Place.Women" /> @Html.DisplayNameFor(model => model.Place.Women)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Place.FreeSmoke" /> @Html.DisplayNameFor(model => model.Place.FreeSmoke)
+                    <input class="form-check-input" asp-for="Place.DamadArosGrim" /> @Html.DisplayNameFor(model => model.Place.DamadArosGrim)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Place.FoodAndDrink" /> @Html.DisplayNameFor(model => model.Place.FoodAndDrink)
+                    <input class="form-check-input" asp-for="Place.PaksaziSorat" /> @Html.DisplayNameFor(model => model.Place.PaksaziSorat)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Place.OpenSpace" /> @Html.DisplayNameFor(model => model.Place.OpenSpace)
+                    <input class="form-check-input" asp-for="Place.feshial" /> @Html.DisplayNameFor(model => model.Place.feshial)
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="Place.FreeSittingTime" class="control-label"></label>
-                <input asp-for="Place.FreeSittingTime" class="form-control" />
-                <span asp-validation-for="Place.FreeSittingTime" class="text-danger"></span>
+                <label asp-for="Place.WorkTime" class="control-label"></label>
+                <input asp-for="Place.WorkTime" class="form-control" />
+                <span asp-validation-for="Place.WorkTime" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Place.RoofGarden" /> @Html.DisplayNameFor(model => model.Place.RoofGarden)
+                    <input class="form-check-input" asp-for="Place.kashtnakhon" /> @Html.DisplayNameFor(model => model.Place.kashtnakhon)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Place.BookCafe" /> @Html.DisplayNameFor(model => model.Place.BookCafe)
+                    <input class="form-check-input" asp-for="Place.Childeren" /> @Html.DisplayNameFor(model => model.Place.Childeren)
                 </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Place.BirthdayTheme" /> @Html.DisplayNameFor(model => model.Place.BirthdayTheme)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Place.Link" class="control-label"></label>
-                <input asp-for="Place.Link" class="form-control" />
-                <span asp-validation-for="Place.Link" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Place.LocationLink" class="control-label"></label>
                 <input asp-for="Place.LocationLink" class="form-control" />
                 <span asp-validation-for="Place.LocationLink" class="text-danger"></span>
             </div>
-         
+            <div class="form-group">
+                <label asp-for="Place.StarRating" class="control-label"></label>
+                <input asp-for="Place.StarRating" class="form-control" />
+                <span asp-validation-for="Place.StarRating" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Place.Address" class="control-label"></label>
                 <input asp-for="Place.Address" class="form-control" />
                 <span asp-validation-for="Place.Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-               @*  <label asp-for="Place.Photo" class="control-label"></label>
-
-                <input asp-for="Place.Photo" class="form-control" />
-                <span asp-validation-for="Place.Photo" class="text-danger"></span> *@
-                @{
-                    foreach ( var photo in Model.Place.Photo?.Select(prop => prop.Value))
-                    {
-                        <input type="file"  value="@photo" name="files" />
-                    }
-                    <input type="file" name="files" multiple />
-                }
+                <input type="file" name="files" multiple />
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
-
-
-    
-    
-    
-    
-    
- 
-    
-    
-    }
 }

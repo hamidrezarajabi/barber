@@ -26,11 +26,13 @@ namespace cafefinder.Pages
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
 
-            if (!_context.Users.Where(p => p.UserName == HttpContext.Request.Cookies["username"] && p.Password == HttpContext.Request.Cookies["password"]).Any())
+            if (!_context.Users.Where(p => p.UserName == HttpContext.Request.Cookies["username"] && p.Password == HttpContext.Request.Cookies["password"]).Any() || !_context.Places.Where(p=> p.UserName == HttpContext.Request.Cookies["username"] && p.Password == HttpContext.Request.Cookies["password"] && p.Id == id).Any())
             {
 
                 return RedirectToPage("login");
             }
+
+
 
 
             if (id == null)

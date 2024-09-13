@@ -1,0 +1,53 @@
+﻿@page
+@model cafefinder.Pages.cafepanelModel
+@{
+}
+
+
+<table>
+    <tr>
+        <th>روز یا تاریخ</th>
+
+        <th>نام و نام خانوادگی</th>
+        <th>شماره تماس</th>
+        <th>حذف تایم</th>
+        <th>خالی کردن تایم</th>
+    </tr>
+    @foreach (var item in Model.Place.rezerv)
+    {
+        <tr>
+            <td>@item</td>
+
+            @if (Model.Place.selectrezerv?.TryGetValue(item, out string? value) ?? false)
+            {
+                var x = value.Split("'''");
+
+                <td>@x[0]</td>
+                <td>@x[1]</td>
+            }
+            else
+            {
+                <td>-</td>
+                <td>-</td>
+            }
+            <td><form method="post"><input type="hidden" value="@item" name="deleteTime" /><button type="submit">حذف تایم</button></form></td>
+            <td><form method="post"><input type="hidden" value="@item" name="clearTime" /><button type="submit">خالی کردن تایم</button></form></td>
+        </tr>
+    }
+</table>
+
+
+<h1>اضافه کردن تایم</h1>
+<form method="post"><input type="text" name="addTime" /><button type="submit">اضافه کردن تایم</button></form>
+
+<style>
+
+    td {
+        padding-right: 20px;
+        text-align: center;
+    }
+
+</style>
+
+
+
